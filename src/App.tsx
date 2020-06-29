@@ -5,6 +5,7 @@ function App() {
   return (
     <div className="App">
         <Header/>
+        <h1>hello</h1>
       <span>Soon there will be a social network or something like that</span>
     </div>
   );
@@ -13,6 +14,7 @@ function App() {
 function Header() {
     return (
         <div>Header</div>
+
     )
 }
 
