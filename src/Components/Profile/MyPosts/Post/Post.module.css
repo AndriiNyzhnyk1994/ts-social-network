@@ -1,0 +1,12 @@
+.item {
+    color: green;
+    margin: 20px;
+
+}
+
+.item img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 2px solid #274e77;
+}
