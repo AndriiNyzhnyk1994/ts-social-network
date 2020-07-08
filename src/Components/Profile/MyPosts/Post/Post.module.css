@@ -9,4 +9,5 @@
     height: 55px;
     border-radius: 50%;
     border: 2px solid #274e77;
+    object-fit: cover;
 }
