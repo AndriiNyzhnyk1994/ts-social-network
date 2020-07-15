@@ -2,6 +2,7 @@ import React from "react";
 import s from './MyPosts.module.css';
 import Post from "./Post/Post";
 import {Button} from "@material-ui/core";
+import { TextField } from '@material-ui/core';
 
 
 const MyPosts = () => {
@@ -9,7 +10,14 @@ const MyPosts = () => {
         <div>
             My posts
             <div>
-                <textarea></textarea>
+                <TextField
+                    id="outlined-multiline-static"
+                    label="Multiline"
+                    multiline
+                    rows={3}
+                    defaultValue="Write your post"
+                    variant="outlined"
+                />
                 <Button variant={'contained'} size={'small'}>Add post</Button>
                 <Button variant={'contained'} size={'small'}>Remove</Button>
 
