@@ -6,24 +6,32 @@ import {PostType} from "../../../redux/state";
 
 
 type PropsType = {
-    state: Array< PostType >
+    state: Array<PostType>,
+    addPost: () => void
 }
 
 
 const MyPosts = (props: PropsType) => {
 
-    let postsElements = props.state.map( (p: { message: string; likesCount: number; }) =>
-        <Post message={p.message} likesCount={p.likesCount}/> )
+    let postsElements = props.state.map((p: { message: string; likesCount: number; }) =>
+        <Post message={p.message} likesCount={p.likesCount}/>)
+
+    let newPostElement = React.createRef()
+
+    let addPost = () => {
+        let text = newPostElement.current.value;
+        alert(text);
+    }
 
     return (
         <div className={s.postsBlock}>
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea></textarea>
+                    <textarea ref={newPostElement}></textarea>
                 </div>
                 <div>
-                    <Button variant={'contained'} size={'small'}>Add post</Button>
+                    <Button onClick={ addPost } variant={'contained'} size={'small'}>Add post</Button>
                 </div>
             </div>
             <div className={s.posts}>

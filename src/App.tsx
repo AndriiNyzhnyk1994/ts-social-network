@@ -4,7 +4,7 @@ import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import {Profile} from "./Components/Profile/Profile";
 import {Dialogs} from './Components/Dialogs/Dialogs';
-import {BrowserRouter, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import { RootStateType } from "./redux/state";
 
 type PropsType = {
@@ -14,7 +14,6 @@ type PropsType = {
 const App = (props: PropsType) => {
 
     return (
-        <BrowserRouter>
             <div className="app-wrapper">
                 <Header/>
                 <Navbar />
@@ -26,9 +25,8 @@ const App = (props: PropsType) => {
                            render={ () => <Profile
                                state={props.state.profilePage} />}/>
                 </div>
-
             </div>
-        </BrowserRouter>
+
     );
 }
 
