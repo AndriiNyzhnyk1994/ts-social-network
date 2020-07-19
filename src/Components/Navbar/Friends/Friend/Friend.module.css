@@ -1,0 +1,20 @@
+.friend {
+    width: 50px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo img{
+    width: 47px;
+    height: 47px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.name {
+    color: white;
+    font-size: 15px;
+}
