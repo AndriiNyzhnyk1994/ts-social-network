@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 export type PostType = {
     id: number,
     message: string,
@@ -20,7 +22,8 @@ type FriendType = {
 ////////////
 
 export type ProfilePageType = {
-    posts: Array<PostType>
+    posts: Array<PostType>,
+    newPostText: string
 }
 export type DialogsPageType = {
     dialogs: Array<DialogType>,
@@ -30,7 +33,6 @@ export type FriendsPageType = {
     friends: Array<FriendType>
 }
 type SidebarType = {}
-
 
 
 ////////////
@@ -53,7 +55,8 @@ let state: RootStateType = {
             },
             {id: 2, message: 'So that?? Will you send money ??? I`m really needed', likesCount: 10},
             {id: 3, message: 'Send me money and I\'ll tell on my twitter that you are a cool man ;)', likesCount: 9},
-        ]
+        ],
+        newPostText: ''
     },
     dialogsPage: {
         dialogs: [
@@ -73,16 +76,31 @@ let state: RootStateType = {
             {id: 6, message: "You bastard!!! Give back my mom\'s chain!!!"}
         ]
     },
-    sidebar: {},
-
     friendsPage: {
         friends: [
             {id: 1, photo: 'https://www.ivetta.ua/wp-content/uploads/2012/12/khoroshij-paren.jpg', name: 'Vlad'},
             {id: 2, photo: 'https://cs11.pikabu.ru/post_img/2019/02/19/7/155057366412019753.jpg', name: 'Polina'},
             {id: 3, photo: 'https://www.meme-arsenal.com/memes/402d1d65d9d161ff5cc1659e7456bb74.jpg', name: 'Vlados'},
         ]
-    }
-
+    },
+    sidebar: {},
 }
+
+
+export const addPost = (postText: string) => {
+    const newPost: PostType = {
+        id: 5,
+        message: state.profilePage.newPostText,
+        likesCount: 0
+    };
+    state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
+    rerenderEntireTree(state)
+}
+export const updateNewPostText = (newText: string) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state)
+}
+
 
 export default state;
